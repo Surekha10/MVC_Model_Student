@@ -1,0 +1,84 @@
+﻿@model MVC_Model_DAL.Models.StudentModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Find</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div align="center">
+        <h4>StudentModel</h4>
+        <hr />
+        <dl class="dl-horizontal" style="width:50%;text-align:left;">
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.StudentID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.StudentName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentEmailID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.StudentEmailID)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentMobileNo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.StudentMobileNo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentCity)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.StudentCity)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentGender)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.StudentGender)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentImageAddress)
+            </dt>
+    
+            <dd>
+                <img height="200px" width="250px" src=@Model.StudentImageAddress />
+            </dd>
+    
+        </dl>
+        @Html.ActionLink("Edit", "Edit", "Student", new {id=Model.StudentID},null)
+        @Html.ActionLink("Delete","Delete","Student",new { id = Model.StudentID },null)
+    </div>
+</body>
+</html>

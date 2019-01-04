@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MVC_Model_DAL.Models.StudentProjectionModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div align="center">
+        @Html.Action("GetProfileDetails","Student")
+        @using (Html.BeginForm("Search", "Student", FormMethod.Post, new { @class = "container", @style = "text-align:left;width:30%;" }))
+        {
+            <div class="form-group">
+                <label class="form-control-static">Search Key :</label>
+                <input type="text" id="key" name="key" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn-danger"/>
+            </div>
+        }
+        <table class="table" style="width:70%;">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentGender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentImageAddress)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentGender)
+                    </td>
+                    <td>
+                        <img height="100px" width="200px" src=@item.StudentImageAddress />
+                    </td>
+                    <td>
+                        @Html.ActionLink("View Details","Find","Student",new {id=item.StudentID},null)
+            </td>
+        </tr>
+    }
+
+        </table>
+    </div>
+</body>
+</html>
